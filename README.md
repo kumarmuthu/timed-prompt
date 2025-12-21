@@ -6,6 +6,8 @@
 ![GitHub Stars](https://img.shields.io/github/stars/kumarmuthu/timed-prompt?style=for-the-badge)
 ![GitHub Contributors](https://img.shields.io/github/contributors/kumarmuthu/timed-prompt?style=for-the-badge)
 
+[![Build Status](https://github.com/kumarmuthu/timed-prompt/actions/workflows/python-app.yml/badge.svg)](https://github.com/kumarmuthu/timed-prompt/actions/workflows/python-app.yml)
+[![codecov](https://codecov.io/github/kumarmuthu/timed-prompt/graph/badge.svg)](https://codecov.io/github/kumarmuthu/timed-prompt)
 [![PyPI Version](https://img.shields.io/pypi/v/timed-prompt?label=PyPI%20Version&color=brightgreen)](https://pypi.org/project/timed-prompt/)
 [![Test PyPI Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Test%20PyPI&query=info.version&url=https://test.pypi.org/pypi/timed-prompt/json&cacheSeconds=0)](https://test.pypi.org/project/timed-prompt/)
 
