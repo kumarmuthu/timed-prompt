@@ -1,9 +1,6 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-# CI workflow for timed-prompt
-# Runs import check across multiple Python versions and uploads coverage to Codecov
-
 name: timed-prompt CI and Coverage
 
 on:
@@ -43,7 +40,8 @@ jobs:
 
       - name: Run import sanity test with coverage
         run: |
-          coverage run -c "from timed_prompt import timed_input_or_getpass; print('timed-prompt import OK')"
+          echo "from timed_prompt import timed_input_or_getpass; print('timed-prompt import OK')" > import_test.py
+          coverage run import_test.py
 
       - name: Generate coverage report
         run: |
@@ -57,4 +55,3 @@ jobs:
           files: coverage.xml
           flags: timed-prompt
           name: timed-prompt-${{ matrix.python-version }}
-
