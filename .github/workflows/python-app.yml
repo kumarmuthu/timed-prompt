@@ -33,9 +33,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
 
-      - name: Install project and coverage
+      - name: Install project
         run: |
-          pip install -e .
+          if [[ "${{ matrix.python-version }}" < "3.9" ]]; then
+              pip install .
+          else
+              pip install -e .
+          fi
           pip install coverage
 
       - name: Run import sanity test with coverage
