@@ -1,2 +1,129 @@
 # timed-prompt
-A lightweight Python utility for secure, cross-platform input and password prompts with enforced timeouts (Windows/Linux/macOS).
+
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/kumarmuthu/timed-prompt)
+![GitHub License](https://img.shields.io/github/license/kumarmuthu/timed-prompt?style=for-the-badge)
+![GitHub Forks](https://img.shields.io/github/forks/kumarmuthu/timed-prompt?style=for-the-badge)
+![GitHub Stars](https://img.shields.io/github/stars/kumarmuthu/timed-prompt?style=for-the-badge)
+![GitHub Contributors](https://img.shields.io/github/contributors/kumarmuthu/timed-prompt?style=for-the-badge)
+
+[![PyPI Version](https://img.shields.io/pypi/v/timed-prompt?label=PyPI%20Version&color=brightgreen)](https://pypi.org/project/timed-prompt/)
+[![Test PyPI Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Test%20PyPI&query=info.version&url=https://test.pypi.org/pypi/timed-prompt/json&cacheSeconds=0)](https://test.pypi.org/project/timed-prompt/)
+
+---
+
+A **cross-platform Python library** for `input()` / `getpass()` prompts with a **real timeout**, compatible with **Windows, Linux, and macOS**.
+
+Unlike the standard `input()`, this library ensures:
+
+* Timeout is enforced safely
+* No daemon threads or signals required
+* Works reliably on Windows console
+* Simple SSH-style password prompt UX
+
+---
+
+## ✨ Features
+
+* ✔ Cross-platform: Windows / Linux / macOS
+* ✔ Works with both `input()` and `getpass()`
+* ✔ Enforces timeout without hanging or crashing
+* ✔ Optional **quiet mode** (no prompt output)
+* ✔ Can be used in CLI tools, scripts, and SSH-style workflows
+
+---
+
+## 🔹 Project layout
+
+```
+timed-prompt/
+├── timed_prompt/
+│   ├── __init__.py
+│   └── prompt.py
+├── README.md
+├── pyproject.toml
+├── LICENSE
+├── MANIFEST.in
+├── .gitignore
+└── examples/
+    └── demo.py
+```
+
+---
+
+## 📦 Installation
+
+### **1️⃣ Install via PyPI (recommended)**
+
+```bash
+pip install timed-prompt
+```
+
+### **2️⃣ Clone the repository (optional / development)**
+
+```bash
+git clone https://github.com/kumarmuthu/timed-prompt
+cd timed-prompt
+```
+
+---
+
+## ▶️ Usage
+
+### **Normal mode (prompt displayed)**
+
+```python
+from timed_prompt import timed_input_or_getpass
+
+# Prompt displayed normally, 30s timeout
+pw = timed_input_or_getpass("Password (30s timeout): ", 30)
+
+if pw is None:
+    print("Timed out")
+else:
+    print(f"Password entered (length): {len(pw)}")
+```
+
+> ⚠️ **Security note:** Avoid printing actual passwords in production.
+
+### **Quiet mode (prompt not printed)**
+
+```python
+from timed_prompt import timed_input_or_getpass
+
+# Quiet mode: prompt not shown, useful for automated scripts
+pw = timed_input_or_getpass("Enter password: ", 20, quiet=True)
+
+if pw is None:
+    print("Timed out (quiet mode)")
+else:
+    print(f"Password entered (quiet mode, length): {len(pw)}")
+```
+
+---
+
+## 📁 Example script
+
+```bash
+python examples/demo.py
+```
+
+Or via CLI entry point after installation:
+
+```bash
+timed-prompt-demo
+```
+
+---
+
+## Author
+
+Created and maintained by **[kumarmuthu](https://github.com/kumarmuthu)**.
+
+---
+
+## 📝 License
+
+MIT License
+Feel free to use, modify, and contribute.
+
+---
