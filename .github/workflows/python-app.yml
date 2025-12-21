@@ -43,7 +43,7 @@ jobs:
 
       - name: Run demo sanity test with coverage
         run: |
-          echo "
+          cat <<EOF > demo_test.py
 import sys, os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from timed_prompt import timed_input_or_getpass
@@ -55,7 +55,7 @@ except:
     pass
 
 print('timed-prompt import OK')
-" > demo_test.py
+EOF
           coverage run demo_test.py
 
       - name: Generate coverage report
@@ -70,3 +70,4 @@ print('timed-prompt import OK')
           files: coverage.xml
           flags: timed-prompt
           name: timed-prompt-${{ matrix.python-version }}
+
