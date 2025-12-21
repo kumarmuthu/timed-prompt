@@ -38,16 +38,19 @@ Unlike the standard `input()`, this library ensures:
 
 ```
 timed-prompt/
-├── timed_prompt/
-│   ├── __init__.py
-│   └── prompt.py
-├── README.md
-├── pyproject.toml
-├── LICENSE
-├── MANIFEST.in
-├── .gitignore
-└── examples/
-    └── demo.py
+├── timed_prompt/          # Importable package
+│   ├── __init__.py        # Exposes API
+│   └── prompt.py          # Core logic
+├── examples/              # Non-package demo scripts
+│   └── demo.py
+├── .github/
+│   └── workflows/
+│       └── python-app.yml # CI + Codecov
+├── README.md              # PyPI description
+├── pyproject.toml         # PEP 621 config
+├── LICENSE                # Required for PyPI
+├── MANIFEST.in            # Source dist inclusion
+└── .gitignore
 ```
 
 ---
