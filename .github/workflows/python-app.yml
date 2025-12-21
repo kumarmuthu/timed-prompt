@@ -13,7 +13,7 @@ on:
     branches: [ main ]
   schedule:
     - cron: "0 9 1 * *"   # Monthly run (1st day, 9 AM UTC)
-  workflow_dispatch:
+  workflow_dispatch:        # Enable manual runs
 
 jobs:
   build:
@@ -43,10 +43,7 @@ jobs:
 
       - name: Run import sanity test with coverage
         run: |
-          coverage run -m python - <<EOF
-          from timed_prompt import timed_input_or_getpass
-          print("timed-prompt import OK")
-          EOF
+          coverage run -c "from timed_prompt import timed_input_or_getpass; print('timed-prompt import OK')"
 
       - name: Generate coverage report
         run: |
@@ -60,3 +57,4 @@ jobs:
           files: coverage.xml
           flags: timed-prompt
           name: timed-prompt-${{ matrix.python-version }}
+
