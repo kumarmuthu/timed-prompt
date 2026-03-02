@@ -12,7 +12,8 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: "0 9 1 * *"   # Monthly run (1st day, 9 AM UTC)
+    # - cron: "0 9 1 * *"   # Monthly run (1st day, 9 AM UTC)
+    - cron: "0 0 15 * *"  # mid-month run
   workflow_dispatch:        # Enable manual runs
 
 jobs:
